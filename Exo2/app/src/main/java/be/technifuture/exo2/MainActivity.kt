@@ -2,6 +2,7 @@ package be.technifuture.exo2
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.widget.Toolbar
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
@@ -29,6 +30,18 @@ class MainActivity : AppCompatActivity() {
 
             val direction = HomeFragmentDirections.actionHomeFragmentToAddItemFragment()
             navController.navigate(direction)
+        }
+
+        // Change name of toolbar
+        navController.addOnDestinationChangedListener{ controller, destination, arguments ->
+            when(destination.id){
+                R.id.addItemFragment -> {
+
+                    binding.buttonAddItem.visibility = View.INVISIBLE
+                }
+                else -> binding.buttonAddItem.visibility = View.VISIBLE
+            }
+
         }
     }
 }
