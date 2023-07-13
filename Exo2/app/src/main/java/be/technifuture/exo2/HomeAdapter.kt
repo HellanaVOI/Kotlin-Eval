@@ -10,8 +10,8 @@ class ItemListViewHolder(private var viewBinding: CellHomeBinding) :
         RecyclerView.ViewHolder(viewBinding.root) {
 
         fun bind(item: Item) {
-            viewBinding.textQuantity.setText(item.quantity.toString())
-            viewBinding.textItem.setText(item.name)
+            viewBinding.textQuantity.text = item.quantity.toString()
+            viewBinding.textItem.text = item.name
             viewBinding.textItem.setTextColor(
                 ResourcesCompat.getColor(
                     itemView.resources,

@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.MutableLiveData
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import be.technifuture.exo2.databinding.FragmentHomeBinding
@@ -15,10 +14,9 @@ import be.technifuture.exo2.databinding.FragmentHomeBinding
 class HomeFragment : Fragment() {
 
     private var liveData: MutableLiveData<Item>? = null
-    lateinit var binding: FragmentHomeBinding
+    private lateinit var binding: FragmentHomeBinding
     private var listItem = mutableListOf<Item>()
-
-    /*private var listItem = mutableListOf<Item>(
+    /*(
         Item("Potato", 5, TypeItem.BOISSON),
         Item("Potato", 5, TypeItem.ALIMENTATION),
         Item("Potato", 5, TypeItem.MAISON),

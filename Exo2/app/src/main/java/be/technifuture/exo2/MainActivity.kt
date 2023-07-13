@@ -4,16 +4,13 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.widget.Toolbar
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.NavigationUI
 import be.technifuture.exo2.databinding.ActivityMainBinding
-import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var binding: ActivityMainBinding
+    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,17 +23,16 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
         NavigationUI.setupActionBarWithNavController(this,navController)
 
+        // Config du bouton add dans la toolbar
         binding.buttonAddItem.setOnClickListener {
-
             val direction = HomeFragmentDirections.actionHomeFragmentToAddItemFragment()
             navController.navigate(direction)
         }
 
         // Change name of toolbar
-        navController.addOnDestinationChangedListener{ controller, destination, arguments ->
+        navController.addOnDestinationChangedListener{ _, destination, _ ->
             when(destination.id){
                 R.id.addItemFragment -> {
-
                     binding.buttonAddItem.visibility = View.INVISIBLE
                 }
                 else -> binding.buttonAddItem.visibility = View.VISIBLE
