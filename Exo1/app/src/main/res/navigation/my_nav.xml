@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_nav"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="be.technifuture.exo1.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_inscriptionFragment"
+            app:destination="@id/inscriptionFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_connecyFragment"
+            app:destination="@id/connecyFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/inscriptionFragment"
+        android:name="be.technifuture.exo1.InscriptionFragment"
+        android:label="fragment_inscription"
+        tools:layout="@layout/fragment_inscription" >
+        <action
+            android:id="@+id/action_inscriptionFragment_to_confirmInscriptionFragment"
+            app:destination="@id/confirmInscriptionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/connecyFragment"
+        android:name="be.technifuture.exo1.ConnectFragment"
+        android:label="fragment_connecy"
+        tools:layout="@layout/fragment_connect" >
+        <argument
+            android:name="type"
+            app:argType="be.technifuture.exo1.connectedBy" />
+        <action
+            android:id="@+id/action_connecyFragment_to_confirmConnectFragment"
+            app:destination="@id/confirmConnectFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/confirmConnectFragment"
+        android:name="be.technifuture.exo1.ConfirmConnectFragment"
+        android:label="fragment_confirm_connect"
+        tools:layout="@layout/fragment_confirm_connect" >
+        <argument
+            android:name="type"
+            app:argType="be.technifuture.exo1.connectedBy" />
+    </fragment>
+    <fragment
+        android:id="@+id/confirmInscriptionFragment"
+        android:name="be.technifuture.exo1.ConfirmInscriptionFragment"
+        android:label="fragment_confirm_inscription"
+        tools:layout="@layout/fragment_confirm_inscription" >
+        <argument
+            android:name="login"
+            app:argType="string" />
+    </fragment>
+</navigation>
